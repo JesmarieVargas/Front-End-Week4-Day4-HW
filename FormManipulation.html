@@ -1,0 +1,52 @@
+<!--Task 1: Creating an HTML form with input fields for the user's name, email, and message.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Manipulation</title>
+</head>
+<body>
+    <h1>Form Manipulation</h1>
+    <br>
+    <form id="userinput-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+<!--Task 2: Writing JavaScript code to handle form submissions and store user input in an object and Implementing form validation to ensure that all required fields are filled before submission.-->
+    <script>
+
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); 
+
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name === '' || email === '' || message === '') { 
+                alert('All fields are required.');
+                return;
+            }
+
+            const userInput = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            console.log('User Input:', userInput); 
+        });
+    </script>
+</body>
+</html>
